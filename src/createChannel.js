@@ -53,13 +53,37 @@ function main(projectId, location, channelId, inputId, outputUri) {
         },
         elementaryStreams: [
           {
-            key: 'es_video',
+            key: 'es_video_720p',
             videoStream: {
               h264: {
                 profile: 'high',
                 heightPixels: 720,
                 widthPixels: 1280,
                 bitrateBps: 3000000,
+                frameRate: 30,
+              },
+            },
+          },
+          {
+            key: 'es_video_480p',
+            videoStream: {
+              h264: {
+                profile: 'main',
+                heightPixels: 480,
+                widthPixels: 854,
+                bitrateBps: 1500000,
+                frameRate: 30,
+              },
+            },
+          },
+          {
+            key: 'es_video_240p',
+            videoStream: {
+              h264: {
+                profile: 'main',
+                heightPixels: 240,
+                widthPixels: 426,
+                bitrateBps: 750000,
                 frameRate: 30,
               },
             },
@@ -76,7 +100,7 @@ function main(projectId, location, channelId, inputId, outputUri) {
         muxStreams: [
           {
             key: 'mux_video',
-            elementaryStreams: ['es_video'],
+            elementaryStreams: ['es_video_720p', 'es_video_480p', 'es_video_240p'],
             segmentSettings: {
               seconds: 2,
             },

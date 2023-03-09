@@ -99,8 +99,22 @@ function main(projectId, location, channelId, inputId, outputUri) {
         ],
         muxStreams: [
           {
-            key: 'mux_video',
-            elementaryStreams: ['es_video_720p', 'es_video_480p', 'es_video_240p'],
+            key: 'mux_video_720p',
+            elementaryStreams: ['es_video_720p'],
+            segmentSettings: {
+              seconds: 2,
+            },
+          },
+          {
+            key: 'mux_video_480p',
+            elementaryStreams: ['es_video_480p'],
+            segmentSettings: {
+              seconds: 2,
+            },
+          },
+          {
+            key: 'mux_video_240p',
+            elementaryStreams: ['es_video_240p'],
             segmentSettings: {
               seconds: 2,
             },

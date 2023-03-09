@@ -131,7 +131,7 @@ function main(projectId, location, channelId, inputId, outputUri) {
           {
             fileName: 'manifest.m3u8',
             type: 'HLS',
-            muxStreams: ['mux_video', 'mux_audio'],
+            muxStreams: ['mux_video_720p', 'mux_video_480p', 'mux_video_240p', 'mux_audio'],
             maxSegmentCount: 5,
           },
         ],
